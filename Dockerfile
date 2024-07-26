@@ -28,13 +28,13 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 WORKDIR /data
 
 # Instala o Puppeteer localmente
-RUN npm init -y && npm install puppeteer@22.13.1 && npm install url
+RUN npm init -y && npm install puppeteer@22.13.1
 
 EXPOSE $PORT
 
 ENV N8N_USER_ID=root
 
 # Adiciona a configuração para permitir módulos externos
-ENV NODE_FUNCTION_ALLOW_EXTERNAL=puppeteer,url
+ENV NODE_FUNCTION_ALLOW_EXTERNAL=puppeteer
 
 CMD export N8N_PORT=$PORT && n8n start
