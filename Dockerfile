@@ -1,6 +1,6 @@
 FROM node:18.20-alpine
 
-ARG N8N_VERSION=1.50.2
+# ARG N8N_VERSION=1.50.2 n8n@${N8N_VERSION}
 
 # Instala as dependências necessárias para n8n e Puppeteer
 RUN apk add --update --no-cache \
@@ -17,7 +17,7 @@ USER root
 
 # Instala n8n
 RUN apk --update add --virtual build-dependencies python3 build-base && \
-    npm_config_user=root npm install --location=global n8n@${N8N_VERSION} && \
+    npm_config_user=root npm install --location=global n8n && \
     apk del build-dependencies
 
 # Configura as variáveis de ambiente para o Puppeteer
@@ -28,7 +28,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 WORKDIR /data
 
 # Instala o Puppeteer localmente
-RUN npm init -y && npm install puppeteer@22.13.1 && npm install wappalyzer@7.0.3
+RUN npm init -y && npm install puppeteer@22.13.1
 
 EXPOSE $PORT
 
