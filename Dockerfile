@@ -28,7 +28,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 WORKDIR /data
 
 # Instala o Puppeteer localmente
-RUN npm init -y && npm install puppeteer@22.13.1
+RUN npm init -y && npm install puppeteer@22.13.1 && npm install url
 
 EXPOSE $PORT
 
