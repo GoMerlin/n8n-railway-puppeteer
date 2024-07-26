@@ -35,6 +35,6 @@ EXPOSE $PORT
 ENV N8N_USER_ID=root
 
 # Adiciona a configuração para permitir módulos externos
-ENV NODE_FUNCTION_ALLOW_EXTERNAL=puppeteer
+ENV NODE_FUNCTION_ALLOW_EXTERNAL=puppeteer,url
 
 CMD export N8N_PORT=$PORT && n8n start
