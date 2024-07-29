@@ -32,6 +32,7 @@ RUN npm init -y && npm install puppeteer@22.13.1
 
 EXPOSE $PORT
 
+# Set root user
 ENV N8N_USER_ID=root
 
 # Adiciona a configuração para permitir módulos externos
