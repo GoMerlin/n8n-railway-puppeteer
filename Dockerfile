@@ -21,7 +21,7 @@ WORKDIR /data
 
 # Configura as variáveis de ambiente para o Puppeteer
 ENV  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-     PUPPETEER_EXECUTABLE_PATH=/node_modules/puppeteer/.local-chromium/linux-1022525/chrome-linux/chrome \
+     PUPPETEER_EXECUTABLE_PATH=/data/chrome/linux-127.0.6533.99/chrome-linux64/chrome \
      NODE_PATH=/usr/local/lib/node_modules:/data/node_modules
 
 # Instala o Puppeteer e o Chrome
