@@ -17,20 +17,17 @@ RUN apk --update add --virtual build-dependencies python3 build-base && \
     npm_config_user=root npm install --location=global n8n && \
     apk del build-dependencies
 
-# Configura as variáveis de ambiente para o Puppeteer
-ENV  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-     PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome \
-     NODE_PATH=/usr/local/lib/node_modules:/data/node_modules
-
 WORKDIR /data
 
-# Instala o Puppeteer
-RUN npm init -y && npm install puppeteer@23.0.2
+# Configura as variáveis de ambiente para o Puppeteer
+ENV  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+     PUPPETEER_EXECUTABLE_PATH=/node_modules/puppeteer/.local-chromium/linux-1022525/chrome-linux/chrome \
+     NODE_PATH=/usr/local/lib/node_modules:/data/node_modules
 
-# Baixa e instala o Google Chrome
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    apk add --allow-untrusted /google-chrome-stable_current_amd64.deb && \
-    rm /google-chrome-stable_current_amd64.deb
+# Instala o Puppeteer e o Chrome
+RUN npm init -y && npm install puppeteer@23.0.2
+RUN npx @puppeteer/browsers install chrome@stable
+
 
 EXPOSE $PORT
 
