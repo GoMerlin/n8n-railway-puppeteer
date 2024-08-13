@@ -27,7 +27,7 @@ ENV NODE_PATH=/usr/local/lib/node_modules:/data/node_modules
 
 WORKDIR /data
 
-# Instala o Puppeteer localmente
+# Instala o Puppeteer
 RUN npm init -y && npm install puppeteer@23.0.2
 
 EXPOSE $PORT
