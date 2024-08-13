@@ -6,7 +6,7 @@ FROM node:18.20-alpine
 RUN apk add --update --no-cache \
     graphicsmagick \
     tzdata \
-    chromium \
+    # chromium \
     nss \
     freetype \
     harfbuzz \
@@ -21,9 +21,9 @@ RUN apk --update add --virtual build-dependencies python3 build-base && \
     apk del build-dependencies
 
 # Configura as variáveis de ambiente para o Puppeteer
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser \
-    NODE_PATH=/usr/local/lib/node_modules:/data/node_modules
+# ENV  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+# ENV    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser \
+ENV NODE_PATH=/usr/local/lib/node_modules:/data/node_modules
 
 WORKDIR /data
 
