@@ -5,6 +5,7 @@ RUN apk add --update --no-cache \
     graphicsmagick \
     tzdata \
     nss \
+    libc6-compat \
     freetype \
     harfbuzz \
     ca-certificates \
