@@ -10,7 +10,6 @@ RUN apk add --update --no-cache \
     ca-certificates \
     ttf-freefont
 
-# Habilita o repositório comunitário
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
 USER root
