@@ -1,4 +1,4 @@
-FROM node:18.20-alpine
+FROM node:22-alpine
 
 # Instala as dependências necessárias para n8n
 RUN apk add --update --no-cache \
