@@ -19,8 +19,8 @@ RUN apk --update add --virtual build-dependencies python3 build-base && \
     npm_config_user=root npm install --location=global n8n && \
     apk del build-dependencies
 
-# Instala o Firefox
-RUN apk add --no-cache firefox
+# # Instala o Firefox
+# RUN apk add --no-cache firefox
 
 # Configura as variáveis de ambiente para o Puppeteer
 ENV  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
